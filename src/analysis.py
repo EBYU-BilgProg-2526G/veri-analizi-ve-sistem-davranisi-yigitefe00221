@@ -1,39 +1,19 @@
-# -*- coding: utf-8 -*-
-"""
-Temel sinyal analiz fonksiyonları
-"""
+import numpy as np
 
 def sampling_rate(t):
-    """
-    Zaman vektöründen örnekleme frekansını hesaplar
 
-    Parametre:
-        t : zaman vektörü
+    dt = t[1] - t[0]
 
-    Dönen:
-        fs : örnekleme frekansı (Hz)
-    """
-    # TODO:
-    # 1. ardışık iki zaman örneği arasındaki farkı hesapla
-    # 2. fs = 1 / dt
-    pass
+    fs = 1 / dt
+    return fs
 
 
-def basic_stats(x):
-    """
-    Sinyal için temel istatistikleri hesaplar
+def basic_stats(x):  
+    stats = {}
+    stats["mean"] = np.mean(x)
+    stats["std"] = np.std(x)
+    stats["rms"] = np.sqrt(np.mean(x ** 2))
+    stats["min"] = np.min(x)
+    stats["max"] = np.max(x)
 
-    Parametre:
-        x : sinyal vektörü
-
-    Dönen:
-        stats (dict):
-            mean
-            std
-            rms
-            min
-            max
-    """
-    # TODO:
-    # numpy kullanarak gerekli istatistikleri hesapla
-    pass
+    return stats
